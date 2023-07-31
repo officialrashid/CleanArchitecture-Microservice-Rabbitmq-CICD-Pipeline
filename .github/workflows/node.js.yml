@@ -16,15 +16,45 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+
+    # User Service
+    - name: User Service - Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: user-service/package-lock.json
-    - run: npm install
+    - name: User Service - Install Dependencies
+      run: npm install
       working-directory: ./user-service
-    - run: npm test
+    - name: User Service - Run Tests
+      run: npm test
       working-directory: ./user-service
-    - name: Show the directory content
-      run: ls -R
+
+    # Product Service
+    - name: Product Service - Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: product-service/package-lock.json
+    - name: Product Service - Install Dependencies
+      run: npm install
+      working-directory: ./product-service
+    - name: Product Service - Run Tests
+      run: npm test
+      working-directory: ./product-service
+
+    # Order Service
+    - name: Order Service - Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: order-service/package-lock.json
+    - name: Order Service - Install Dependencies
+      run: npm install
+      working-directory: ./order-service
+    - name: Order Service - Run Tests
+      run: npm test
+      working-directory: ./order-service
