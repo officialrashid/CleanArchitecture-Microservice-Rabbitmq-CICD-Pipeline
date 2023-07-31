@@ -23,8 +23,8 @@ jobs:
         cache: 'npm'
         cache-dependency-path: user-service/package-lock.json
     - run: npm install
-      working-directory: './app'
+      working-directory: ./user-service
     - run: npm test
-      working-directory: './app'
+      working-directory: ./user-service
     - name: Show the directory content
       run: ls -R
