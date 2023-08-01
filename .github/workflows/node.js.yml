@@ -8,7 +8,7 @@ jobs:
   build:
 
     runs-on: self-hosted
-
+        
     strategy:
       matrix:
         node-version: [14.x]
@@ -58,49 +58,3 @@ jobs:
     - name: Order Service - Run Tests
       run: npm test
       working-directory: ./order-service
-
-    # Install PM2 globally
-    - name: Install PM2
-      run: npm install -g pm2
-
-    # Start the services using PM2
-    - name: Start User Service
-      run: pm2 start user-service
-      working-directory: ./user-service
-
-    - name: Start Product Service
-      run: pm2 start product-service
-      working-directory: ./product-service
-
-    - name: Start Order Service
-      run: pm2 start order-service
-      working-directory: ./order-service
-
-    # Wait for services to be online
-    - name: Wait for User Service
-      run: pm2 list
-      continue-on-error: true
-      shell: bash |
-        while ! pm2 describe 0 | grep -q "status: online"; do
-          sleep 1
-        done
-
-    - name: Wait for Product Service
-      run: pm2 list
-      continue-on-error: true
-      shell: bash |
-        while ! pm2 describe 1 | grep -q "status: online"; do
-          sleep 1
-        done
-
-    - name: Wait for Order Service
-      run: pm2 list
-      continue-on-error: true
-      shell: bash |
-        while ! pm2 describe 2 | grep -q "status: online"; do
-          sleep 1
-        done
-
-    # Show PM2 process list
-    - name: Show PM2 Process List
-      run: pm2 list
