@@ -3,7 +3,7 @@ export default {
     port: 3000,
     
     mongo: {
-      uri: 'mongodb://localhost:27017/clean-user'
+      uri: 'mongodb+srv://muhammedrashi59:SUxzxasGOgEgKKPb@micro.1nbiei8.mongodb.net/?retryWrites=true&w=majority'
     },
 
   };
