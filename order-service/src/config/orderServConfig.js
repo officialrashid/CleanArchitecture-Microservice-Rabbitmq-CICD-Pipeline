@@ -4,7 +4,7 @@ export default {
     
     mongo: {
       uri: 'mongodb://mongodb:27017/clean-order'
-    },
+    }
 
   };
   console.log("first");

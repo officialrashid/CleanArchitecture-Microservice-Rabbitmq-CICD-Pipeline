@@ -9,6 +9,7 @@ const authController = (userRepositoryInt,userRepositoryImp,userServiceInt,userS
     const authService = userServiceInt(userServiceImp())
 
     const createUser = async (req, res) => {
+    
       const { name, email, password } = req.body; //getting data from router
       try {
         //call the usecase  register function //
@@ -20,6 +21,7 @@ const authController = (userRepositoryInt,userRepositoryImp,userServiceInt,userS
           res.status(500).json({ error: "Something went wrong" });
       }
   };
+  
   
    return {
     createUser

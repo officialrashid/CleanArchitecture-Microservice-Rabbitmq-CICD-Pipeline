@@ -4,7 +4,7 @@ var channel,connection;
 
 const connect = async () => {
     try {
-      const amqpServer = "amqp://rabbitmq:5672";
+      const amqpServer = "amqp://localhost:5672";
       connection = await amqp.connect(amqpServer);
       channel = await connection.createChannel();
       await channel.assertQueue("PRODUCT");

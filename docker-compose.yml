@@ -13,33 +13,68 @@ services:
       - my_network
 
   user-service:
-    image: user-service:latest
+    image: officialrashid/user-service
     ports:
       - "3000:3000"
     networks:
       - my_network
+    environment:
+      APP_SECRET: "barkat"
+      MONGODB_URI: "mongodb://mongodb:27017/clean-user"
+      PORT: 3000
+      MOJO_API_KEY: "test-39c833cd-adc0-4787-8027-400b8551d49f"
+      MESSAGE_BROKER_URL: "amqp://rabbitmq"
+    depends_on:
+      - mongodb
+      - rabbitmq
 
   product-service:
-    image: product-service:latest
+    image: officialrashid/product-service
     ports:
       - "4001:4000"
     networks:
       - my_network
+    environment:
+      APP_SECRET: "barkat"
+      MONGODB_URI: "mongodb://mongodb:27017/clean-product"
+      PORT: 4000
+      MOJO_API_KEY: "test-39c833cd-adc0-4787-8027-400b8551d49f"
+      MESSAGE_BROKER_URL: "amqp://rabbitmq"
+    depends_on:
+      - mongodb
+      - rabbitmq
 
   order-service:
-    image: order-service:latest
+    image: officialrashid/order-service
     ports:
       - "6000:6000"
     networks:
       - my_network
+    environment:
+      APP_SECRET: "barkat"
+      MONGODB_URI: "mongodb://mongodb:27017/clean-order"
+      PORT: 6000
+      MOJO_API_KEY: "test-39c833cd-adc0-4787-8027-400b8551d49f"
+      MESSAGE_BROKER_URL: "amqp://rabbitmq"
+    depends_on:
+      - mongodb
+      - rabbitmq
 
   mongodb:
     image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
-      - ./mongodata:/data/db  # You may change the volume path to your preference
+      - ./mongodata:/data/db
     networks:
       - my_network
 
-
+  mongo-express:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    networks:
+      - my_network
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_PORT: "27017"

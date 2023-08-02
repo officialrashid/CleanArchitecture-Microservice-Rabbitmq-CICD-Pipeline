@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: officialrashid/user-service  
+          image: officialrashid/user-service
           ports:
             - containerPort: 3000
           
