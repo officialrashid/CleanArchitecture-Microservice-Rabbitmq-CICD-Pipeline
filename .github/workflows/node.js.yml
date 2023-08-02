@@ -7,11 +7,11 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [18.x]
         # Add more Node.js versions if needed
 
     steps:
@@ -29,7 +29,7 @@ jobs:
       run: npm install
       working-directory: ./user-service
     - name: User Service - Run Tests
-      run: npm test
+      run: npm start
       working-directory: ./user-service
 
     # Product Service
@@ -43,7 +43,7 @@ jobs:
       run: npm install
       working-directory: ./product-service
     - name: Product Service - Run Tests
-      run: npm test
+      run: npm start
       working-directory: ./product-service
 
     # Order Service
@@ -57,5 +57,5 @@ jobs:
       run: npm install
       working-directory: ./order-service
     - name: Order Service - Run Tests
-      run: npm test
+      run: npm start
       working-directory: ./order-service
