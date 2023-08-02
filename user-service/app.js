@@ -1,5 +1,4 @@
 // Import required modules
-import fetch from "node-fetch";
 import http from "http";
 import serverConfig from "./src/framework/webServer/server.js";
 import getDb from "./src/framework/database/connection.js";
