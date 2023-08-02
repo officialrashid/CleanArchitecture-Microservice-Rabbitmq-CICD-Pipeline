@@ -1,0 +1,61 @@
+name: Microservices CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # Add more Node.js versions if needed
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    # User Service
+    - name: User Service - Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: user-service/package-lock.json
+    - name: User Service - Install Dependencies
+      run: npm install
+      working-directory: ./user-service
+    - name: User Service - Run Tests
+      run: npm test
+      working-directory: ./user-service
+
+    # Product Service
+    - name: Product Service - Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: product-service/package-lock.json
+    - name: Product Service - Install Dependencies
+      run: npm install
+      working-directory: ./product-service
+    - name: Product Service - Run Tests
+      run: npm test
+      working-directory: ./product-service
+
+    # Order Service
+    - name: Order Service - Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: order-service/package-lock.json
+    - name: Order Service - Install Dependencies
+      run: npm install
+      working-directory: ./order-service
+    - name: Order Service - Run Tests
+      run: npm test
+      working-directory: ./order-service
