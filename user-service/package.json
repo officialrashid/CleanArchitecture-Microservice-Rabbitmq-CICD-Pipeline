@@ -5,7 +5,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": "jest"   
   },
   "author": "",
   "license": "ISC",
@@ -23,5 +24,8 @@
     "mongoose": "^7.4.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"  
   }
 }

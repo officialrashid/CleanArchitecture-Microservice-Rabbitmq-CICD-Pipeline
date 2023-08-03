@@ -30,6 +30,8 @@ jobs:
       - name: User Service - Run Tests
         run: npm test
         working-directory: ./user-service
+        env:
+          CI: true
 
       # Product Service
       - name: Product Service - Use Node.js ${{ matrix.node-version }}
@@ -44,6 +46,8 @@ jobs:
       - name: Product Service - Run Tests
         run: npm test
         working-directory: ./product-service
+        env:
+          CI: true
 
       # Order Service
       - name: Order Service - Use Node.js ${{ matrix.node-version }}
@@ -58,6 +62,8 @@ jobs:
       - name: Order Service - Run Tests
         run: npm test
         working-directory: ./order-service
+        env:
+          CI: true
 
   deploy:
     needs: build-and-test
