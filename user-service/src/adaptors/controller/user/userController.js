@@ -1,6 +1,8 @@
 //import usecase functions//
 import registerUser from '../../../application/usecase/user/register.js'
 
+
+
 const authController = (userRepositoryInt,userRepositoryImp,userServiceInt,userServiceImp)=>{
 
      /// assign dbRepository to userRepositiryInt and userRepositoryImp//
@@ -11,6 +13,7 @@ const authController = (userRepositoryInt,userRepositoryImp,userServiceInt,userS
     const createUser = async (req, res) => {
     
       const { name, email, password } = req.body; //getting data from router
+
       try {
         //call the usecase  register function //
           await registerUser(name, email, password, dbRepository, authService).then((response)=>{

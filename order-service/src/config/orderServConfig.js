@@ -3,7 +3,7 @@ export default {
     port:6000,
     
     mongo: {
-      uri: 'mongodb://mongodb:27017/clean-order'
+      uri: 'mongodb+srv://muhammedrashi59:SUxzxasGOgEgKKPb@micro.1nbiei8.mongodb.net/clean-order?retryWrites=true&w=majority'
     }
 
   };
