@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]  # Update to Node.js 16
+        node-version: [16.x]  # Update to Node.js 16
 
     steps:
       - name: Checkout Repository
@@ -80,5 +80,4 @@ jobs:
             cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
             git pull origin main
             npm install
-            npm run build
-            pm2 restart api
+            npm start
