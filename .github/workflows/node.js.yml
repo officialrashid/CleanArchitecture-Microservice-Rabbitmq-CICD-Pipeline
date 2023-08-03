@@ -55,8 +55,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List Contents of CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
-        run: ls -al ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
+      - name: List Contents of the Repository
+        run: ls -al
 
       - name: SSH deploy
         uses: appleboy/ssh-action@master
@@ -71,8 +71,6 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
             nvm install 18  # Update to Node.js 18
             npm install -g pm2
-            cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
-            git pull origin main
             cd path/to/your/app  # Replace this with the correct path containing package.json
             npm install
             npm start
