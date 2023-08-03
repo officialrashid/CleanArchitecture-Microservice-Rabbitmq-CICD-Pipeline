@@ -9,6 +9,8 @@ import routes from "./src/framework/webServer/routes/index.js";
 const app = express();
 const server = http.createServer(app);
 
+
+
 // Connect to the database using the configuration from "config.js"
 getDb(config);
 
