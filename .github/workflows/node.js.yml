@@ -60,55 +60,7 @@ jobs:
         with:
           host: 13.233.198.244 
           username: ubuntu
-          key: -----BEGIN OPENSSH PRIVATE KEY-----
-            b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
-            NhAAAAAwEAAQAAAgEAvjW1t5w3DgEP2nMtlcYLAAlIDmUKmIPUKOArrkLeqYBXnORveANF
-            oHbtIr/fv1Rqgej8iDcCUW3RDla8y6yVy14W7dC5PCwyrY1boauEWZoXcC650wnmyF7irP
-            NoFirrmGdTialnQXlVfmsVtzsne433ULmUl7greCzewHAbLyYH3S7jk6n7kMGdMp5o0Atd
-            zsyywRyM6C7hsEJYndVmT+8ZdyZDOav3rqT5scvoJSm6wsGUDOIpoi5WjlsXA8UHj3B9w6
-            /NXReODyisoyUccytrpnElePFxYAD/3NkqR1oNkG/hnKfo8rOjnM6f8sbp+ZvGqgXHh9gS
-            qh2TXJLFPCrFBUq0nKAjR9YXqb8+OjDYMrIQIc4CQ58838ZYGobDtSE0XhjDD5VgXM54yr
-            bnPHKOwnFJjjc3yiG7vrK4b0XSvza13f1E3pVQA6PDCYPPh5QdAitfwUL1JPcbgc3KOOID
-            ahPQ9padZd6Y50gUQkb1m2J2dpzs/7Aj6r+hV9mE+tY2mQtam0FdowCWIfqrrObLGCI7F7
-            EyZSutwJ4cC2S3MLba7RnZqDQgrsdyPJ73+F7oHCI1/mgwn22ykj1MQ1T9bhDqciu2TUlR
-            WeOVBWbaG8gQKrl67YaiG2JlObiZel1y8Z08IkqeO+I8xKvzfWrcnE2GXtgZlfwYlnxIRr
-            8AAAdQABwTUgAcE1IAAAAHc3NoLXJzYQAAAgEAvjW1t5w3DgEP2nMtlcYLAAlIDmUKmIPU
-            KOArrkLeqYBXnORveANFoHbtIr/fv1Rqgej8iDcCUW3RDla8y6yVy14W7dC5PCwyrY1boa
-            uEWZoXcC650wnmyF7irPNoFirrmGdTialnQXlVfmsVtzsne433ULmUl7greCzewHAbLyYH
-            3S7jk6n7kMGdMp5o0AtdzsyywRyM6C7hsEJYndVmT+8ZdyZDOav3rqT5scvoJSm6wsGUDO
-            Ipoi5WjlsXA8UHj3B9w6/NXReODyisoyUccytrpnElePFxYAD/3NkqR1oNkG/hnKfo8rOj
-            nM6f8sbp+ZvGqgXHh9gSqh2TXJLFPCrFBUq0nKAjR9YXqb8+OjDYMrIQIc4CQ58838ZYGo
-            bDtSE0XhjDD5VgXM54yrbnPHKOwnFJjjc3yiG7vrK4b0XSvza13f1E3pVQA6PDCYPPh5Qd
-            AitfwUL1JPcbgc3KOOIDahPQ9padZd6Y50gUQkb1m2J2dpzs/7Aj6r+hV9mE+tY2mQtam0
-            FdowCWIfqrrObLGCI7F7EyZSutwJ4cC2S3MLba7RnZqDQgrsdyPJ73+F7oHCI1/mgwn22y
-            kj1MQ1T9bhDqciu2TUlRWeOVBWbaG8gQKrl67YaiG2JlObiZel1y8Z08IkqeO+I8xKvzfW
-            rcnE2GXtgZlfwYlnxIRr8AAAADAQABAAACAD5zCedvrY+2f4r8V9IdxIzNf0/ikrkCR0zo
-            VM8Q+2PxVFKZmZNwl5KYmUDYeFCsGY/ve8IJNYSgpourpK7GSiQMD0EjTz3XUQg0KgqJcp
-            msgtd9L9t/G7tbk9auz9S/YLyX6BCBgvo3KP+pjuaq0Eq7kKB7XbL2b6c0LCpIZFR1iw1u
-            kJ9xprufJcpxwf3UTYdRI7tNcWHlyomBLvEbGE1UNistb9LmiBpZ5fUe+mgBLGU3AzG7q2
-            mpBxgUBhlhvhq1F0WBWc6fpi+J7ixeSdnyPpTV/zSXKN8ZVOggkMX+ZgevBAbYBh5xJl2c
-            ZV1jO3yNTYuS/DC4m2Ao97HkKkcFozd76ohbzlAiIyYTW+LHwa6SyeG7cCn5I5LArJSUb0
-            QfuHDlOZnG+GG3X8JEEB1zcUvVfLnl7i9cE2AtumbVuI+IzuDqVGGJxqiWGeeHFr8N9pc6
-            hgCQZ5jn7Lt9ELxiUAdZz18OE4CIbGsMqdVd6pR1BbK6zM0rl5vD7jYZxgx4Im3mWif4zU
-            4pclWb7Cf+K/vWUyv67ZUiijXgZ1ChBClp6xkMBCJcTdscCj6yXtebuL5n/mJVYk10na3B
-            +CgfwQ1o4+rHopopGWBh2pDYgYOcHzfatc2Y2solF/rKjfkl3uAF15utoLXzHrf7aAOwrE
-            exhnXVYmC6kBg1l2fhAAABAQCytU+AR4u9wBW8zV8jugsp7pI2UZZez/RA5NSRWbXaaKfm
-            dg0xiFWBfjEPK+kvRUeHcADN4cujY0TZ0U2DIA+kbe2zRGfsI8UZsoSRMXPEh9Hi9g7ep/
-            XfJtIHiJs4Z614lQBa+L3a0EeE8xUJT3bVUgl407CYs9KxucMOVKjemKn53QbKAvAJEcJW
-            GfK7YFQ/kzvpU2gI+ILQqnWjFWzW1vXNZo6c4/A8qmZ99hXecqudL//f1J4E1wkVb+Mhm9
-            ZaDfp/rbRWLP7cErmB9zcLcQQVllcTfkarYlD5aaC0bMv1JE4J45NRM9TFw25UBzwyW2gp
-            qjRAAvkc3O8Bx84wAAABAQD773X61PZFFpETW3c6vdPMt4a4tbId0V9+zrZ5C8UEu20jnS
-            qJ0df1WnZH84fpcmiqhiB+M/UJ48IpRGPwjXaiAmP3z9mIPS3mWSBqFOQDol/GiOV9ntlx
-            U2p8Xc+eY0OIJ4qcWOmk906tCjqdF1A4om48C4nLG+KsShlnRj+ApDRxwqswEOCrUVUFeQ
-            wNnWA3FZqrX6gDTz6SMhVCXp1I7N01PJltScDiQJuEBDCoWhBbxxMg/7AY82U7u0oSLau9
-            7r79Fq1ILdhI5OqvAkDCMRb6NeMZhhVfHpYghNffzKxvIkPwAAd9otrn+G+z9LyQ0GudVW
-            mDmleZGrNJTJLRAAABAQDBR0+fa6tG+HDwvVxa9KlOq7oE+9ITzHV2upGd7I45NYt5SG6i
-            PwDpzEjHTBLYeA6q724mbXgeKGlECvDbYkCniHrsrm9s+9d90C4050uAaTyLQPs+xTAIQ3
-            LKVw0AcJcP7CcdojqjHkK9VJ7gruWpYvXCfPb5ZMxYR1Sj6uaRY8OqaWlI2iA0KdjB0idy
-            tDxoFfqxxhmrp+BXyuDg0uqvHtRbJcTp7Xk26a797pRNWwfCl6oQtIwPiDIhLUfQ0WZMq/
-            GrOEurd5a2BYzmIh0WwO52/ZSFCUrpFSWUFlPA+NQ29iCWN6YYOr0H9wg9ZMkl6Cj1B1wy
-            w9HnxU4shwSPAAAAFnVidW50dUBpcC0xNzItMzEtNDAtMjkBAgME
-            -----END OPENSSH PRIVATE KEY-----
+          key: ${ { secrets.EC2_KEY } }
           port: 22
           script: |
             curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
