@@ -10,7 +10,7 @@ const connect = async () => {
       await channel.assertQueue("PRODUCT");
       console.log("Connected to RabbitMQ");
     } catch (error) {
-      console.error("Error connecting to RabbitMQ:", error);
+      console.error("Error connecting to RabbitMQd:", error);
     }
   };
   

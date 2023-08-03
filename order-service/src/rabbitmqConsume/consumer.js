@@ -7,7 +7,7 @@ const orderDbRepository = orderRepositoriInf(orderRepositoryImp());
 
 const connect = async () => {
   try {
-    const amqpServer = 'amqp://rabbitmq:5672'; // Update with RabbitMQ container name and port
+    const amqpServer = 'amqp://localhost:5672'; // Update with RabbitMQ container name and port
     const connection = await amqp.connect(amqpServer);
     const channel = await connection.createChannel();
     await channel.assertQueue('ORDER');
