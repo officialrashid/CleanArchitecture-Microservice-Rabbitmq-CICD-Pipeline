@@ -71,6 +71,7 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
             nvm install 18  # Update to Node.js 18
             npm install -g pm2
-            cd path/to/your/app  # Replace this with the correct path containing package.json
+            cd /home/runner/work/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
+            git pull origin main
             npm install
             npm start
