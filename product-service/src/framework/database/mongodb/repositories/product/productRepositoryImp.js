@@ -57,20 +57,10 @@ const productRepositoryImp = () => {
       throw error; // Rethrow the error to be handled in the calling function
     }
   };
-  const getAllProduct = async () => {
-    try {
-      const productList = await productDatas.find();
-      console.log(productList, "products found in the implementation");
-      return productList;
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  };
-  
+
   return {
     addedProduct,
     orderedProducts,
-    getAllProduct
   };
 };
 
