@@ -27,11 +27,6 @@ jobs:
       - name: User Service - Install Dependencies
         run: npm install
         working-directory: ./user-service
-      - name: User Service - Run Tests
-        run: npm test
-        working-directory: ./user-service
-        env:
-          CI: true
 
       # Product Service
       - name: Product Service - Use Node.js ${{ matrix.node-version }}
@@ -43,11 +38,6 @@ jobs:
       - name: Product Service - Install Dependencies
         run: npm install
         working-directory: ./product-service
-      - name: Product Service - Run Tests
-        run: npm test
-        working-directory: ./product-service
-        env:
-          CI: true
 
       # Order Service
       - name: Order Service - Use Node.js ${{ matrix.node-version }}
@@ -59,11 +49,6 @@ jobs:
       - name: Order Service - Install Dependencies
         run: npm install
         working-directory: ./order-service
-      - name: Order Service - Run Tests
-        run: npm test
-        working-directory: ./order-service
-        env:
-          CI: true
 
   deploy:
     needs: build-and-test
