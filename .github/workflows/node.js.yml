@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       # User Service
       - name: User Service - Use Node.js ${{ matrix.node-version }}
@@ -56,11 +56,11 @@ jobs:
 
     steps:
       - name: SSH deploy
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@main
         with:
           host: 13.233.198.244 
           username: ubuntu
-          key: '${{ secrets.EC2_KEY }}
+          key: ${{ secrets.EC2_KEY }}
           port: 22
 
           script: |
