@@ -1,75 +1,54 @@
-name: Microservices CI/CD
+name: CICD for Microservice
+
 
 on:
   push:
     branches:
-      - main
+        - main
+
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [14.x]  # Update to Node.js 18
-
+        node-version: [14.x]
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v1
-
-      # User Service
-      - name: User Service - Use Node.js ${{ matrix.node-version }}
+      - uses: actions/checkout@v2
+      - name: Use node js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: user-service/package-lock.json
-      - name: User Service - Install Dependencies
-        run: npm install
-        working-directory: ./user-service
+         node-version: ${{matrix.node-version}}
+      - name: npm install and build
+        run: |
+          npm install
+          npm run build
+          
+        env:
+          CI: true
+          
 
-      # Product Service
-      - name: Product Service - Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: product-service/package-lock.json
-      - name: Product Service - Install Dependencies
-        run: npm install
-        working-directory: ./product-service
-
-      # Order Service
-      - name: Order Service - Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: order-service/package-lock.json
-      - name: Order Service - Install Dependencies
-        run: npm install
-        working-directory: ./order-service
-
-  deploy:
-    needs: build-and-test
+  deploy: 
+    needs: [build]
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: SSH deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: 13.233.198.244 
-          username: ubuntu
-          key: ${{ secrets.EC2_KEY }}
-          port: 22
-
+     - name: SSH deploy
+       uses: appleboy/ssh-action@master
+       with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           script: |
-            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-            export NVM_DIR="${HOME}/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-            nvm install 18  # Update to Node.js 18
-            npm install -g pm2
-            cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
-            git pull origin main
-            npm install
-            npm start
+              curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    | bash
+              . ~/.nvm/nvm.sh
+               nvm install 14
+               npm install -g pm2
+               cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
+               git pull origin main
+               npm install
+               nom run build
+               pm2 restart api
+
+                    
