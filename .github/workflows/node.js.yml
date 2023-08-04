@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-        - main
+      - main
 
 jobs:
   build:
@@ -14,23 +14,23 @@ jobs:
       - name: Use node js
         uses: actions/setup-node@v1
         with:
-         node-version: ${{matrix.node-version}}
+          node-version: ${{matrix.node-version}}
       - name: npm install and build
         run: |
           cd ./user-service
           npm install
-          npm run build
-          cd ./product-service
+          npm start
+          cd ../product-service
           npm install
-          npm run build
-          cd ./order-service
+          npm start
+          cd ../order-service
           npm install
-          npm run build
+          npm start
 
         env:
           CI: true
 
-  deploy: 
+  deploy:
     needs: [build]
     runs-on: ubuntu-latest
     
@@ -45,19 +45,19 @@ jobs:
           script: |
               curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    | bash
               . ~/.nvm/nvm.sh
-               nvm install 14
-               npm install -g pm2
-               cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
-               git pull origin main
-               cd ./user-service
-               npm install
-               npm run build
-               pm2 restart api
-               cd ./product-service
-               npm install
-               npm run build
-               pm2 restart api
-               cd ./order-service
-               npm install
-               npm run build
-               pm2 restart api
+              nvm install 14
+              npm install -g pm2
+              cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
+              git pull origin main
+              cd ./user-service
+              npm install
+              npm start
+              pm2 restart api
+              cd ../product-service
+              npm install
+              npm start
+              pm2 restart api
+              cd ../order-service
+              npm install
+              npm start
+              pm2 restart api
