@@ -5,9 +5,9 @@ const userRepositoryImp = () =>{
     // add user detail in to the user database
     const createUser = async (user) =>{
         const users =  await new userData({
-            name: user.getname(),
-            email: user.getemail(),
-            password: user.getpassword()
+            name: user?.getname(),
+            email: user?.getemail(),
+            password: user?.getpassword()
         })
         return users.save() //user details save success
 
