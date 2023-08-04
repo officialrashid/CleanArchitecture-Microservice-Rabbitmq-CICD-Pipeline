@@ -63,6 +63,6 @@ jobs:
             for service in "${services[@]}"; do
               cd ./$service
               npm install
-              pm2 restart api
+              pm2 restart all
               cd ..
             done
