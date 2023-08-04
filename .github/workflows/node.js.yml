@@ -1,3 +1,5 @@
+name: CICD for microservice
+
 on:
   push:
     branches:
