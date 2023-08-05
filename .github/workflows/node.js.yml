@@ -48,7 +48,7 @@ jobs:
           cache-dependency-path: order-service/package-lock.json
       - name: Order Service - Install Dependencies
         run: npm install
-        working-directory: ./CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/order-service
+        working-directory: ./order-service
 
   deploy:
     needs: build-and-test
