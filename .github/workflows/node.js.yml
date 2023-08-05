@@ -26,7 +26,7 @@ jobs:
           cache-dependency-path: user-service/package-lock.json
       - name: User Service - Install Dependencies
         run: npm install
-        working-directory: ./user-service
+        working-directory: ./CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/user-service
 
       # Product Service
       - name: Product Service - Use Node.js ${{ matrix.node-version }}
@@ -37,7 +37,7 @@ jobs:
           cache-dependency-path: product-service/package-lock.json
       - name: Product Service - Install Dependencies
         run: npm install
-        working-directory: ./product-service
+        working-directory: ./CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/product-service
 
       # Order Service
       - name: Order Service - Use Node.js ${{ matrix.node-version }}
@@ -48,7 +48,7 @@ jobs:
           cache-dependency-path: order-service/package-lock.json
       - name: Order Service - Install Dependencies
         run: npm install
-        working-directory: ./order-service
+        working-directory: ./CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/order-service
 
   deploy:
     needs: build-and-test
