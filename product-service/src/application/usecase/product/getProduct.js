@@ -7,6 +7,7 @@ const getAllProduct = async (repositories, productService) => {
     } catch (error) {
       console.error("Error in getAllProduct use case:", error);
       return { status: false, message: "Failed to retrieve products" };
+      
     }
   };
   
