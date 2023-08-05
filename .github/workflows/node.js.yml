@@ -70,10 +70,10 @@ jobs:
             npm install -g pm2
             cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
             git pull origin main
-            cd ./user-service
+            cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/user-service
             npm install
-            cd ./product-service
+            cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/product-service
             npm install
-            cd ./order-service
+            cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/order-service
             npm install
             pm2 restart all
