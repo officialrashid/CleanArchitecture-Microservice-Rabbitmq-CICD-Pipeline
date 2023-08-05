@@ -5,7 +5,7 @@ const addedProduct = async (productName,category,price,discription,repositories,
         const producData = productdata(productName,category,price,discription)
         const product =  await repositories.addedProduct(producData)
 
-        return ({status:true,product,success:false})
+        return ({status:true,product,success:true})
          
     } catch (error){
        console.log(error,"error in the usecase added product");
