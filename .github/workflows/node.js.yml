@@ -37,7 +37,7 @@ jobs:
           cache-dependency-path: product-service/package-lock.json
       - name: Product Service - Install Dependencies
         run: npm install
-        working-directory: ./CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline/product-service
+        working-directory: ./product-service
 
       # Order Service
       - name: Order Service - Use Node.js ${{ matrix.node-version }}
