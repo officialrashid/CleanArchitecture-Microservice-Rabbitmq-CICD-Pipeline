@@ -1,31 +1,74 @@
-name: Your Workflow Name
+name: Microservices CI/CD
 
 on:
   push:
     branches:
-      - main  # Trigger the workflow on push to the 'main' branch
+      - main
 
 jobs:
-  your_job_name:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]  # Update to Node.js 18
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # User Service
+      - name: User Service - Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: user-service/package-lock.json
+      - name: User Service - Install Dependencies
+        run: npm install
+        working-directory: ./user-service
+
+      # Product Service
+      - name: Product Service - Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: product-service/package-lock.json
+      - name: Product Service - Install Dependencies
+        run: npm install
+        working-directory: ./product-service
+
+      # Order Service
+      - name: Order Service - Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: order-service/package-lock.json
+      - name: Order Service - Install Dependencies
+        run: npm install
+        working-directory: ./order-service
+
+  deploy:
+    needs: build-and-test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
-
-      - name: Run your command
-        env:
-          HOST: ${{ secrets.HOST }}
-          USER: ${{ secrets.USER }}
-          PORT: ${{ secrets.PORT }}
-        run: |
-          # Use the secrets in your command or script
-          echo "Connecting to $HOST as $USER on port $PORT"
-          # Your other commands go here
+      - name: SSH deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+            export NVM_DIR="${HOME}/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+            nvm install 18  # Update to Node.js 18
+            npm install -g pm2
+            cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
+            git pull origin main
+            npm install
+            npm start
