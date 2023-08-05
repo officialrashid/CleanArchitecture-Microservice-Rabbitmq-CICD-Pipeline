@@ -72,8 +72,8 @@ jobs:
             git pull origin main
             cd ./user-service
             npm install
-            cd ../product-service
+            cd ./product-service
             npm install
-            cd ../order-service
+            cd ./order-service
             npm install
             pm2 restart all
