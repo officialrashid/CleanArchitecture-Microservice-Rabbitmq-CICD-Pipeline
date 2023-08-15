@@ -7,7 +7,7 @@ const expressConfig = (app) => {
     app.use(express.urlencoded({ extended: true }));
     
     app.use(cors({
-        origin: 'https://nextjs-project-22f17.web.app', // Update with your client's origin
+        origin: 'http://localhost:3001', // Update with your client's origin
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true // Allow credentials (cookies, etc.)
     }));
