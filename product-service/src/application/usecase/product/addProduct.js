@@ -1,8 +1,8 @@
 import productdata from "../../../entities/product/productEntities.js"
-const addedProduct = async (productName,category,price,discription,repositories,productService) =>{
+const addedProduct = async (productName,category,price,description,image,repositories,productService) =>{
 
     try {
-        const producData = productdata(productName,category,price,discription)
+        const producData = productdata(productName,category,price,description,image)
         const product =  await repositories.addedProduct(producData)
 
         return ({status:true,product,success:true})

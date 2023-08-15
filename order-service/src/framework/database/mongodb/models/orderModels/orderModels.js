@@ -9,6 +9,16 @@ const orderSchema = new mongoose.Schema({
   ],
 userId:String,
 totalPrice:Number,
+address: {
+  fullName: String,
+  companyName: String,
+  streetAddress: String,
+  country: String,
+  town: String,
+  postCode: String,
+  phone: String,
+  email: String
+},
 created_at:{
     type:Date,
     default:Date.now()

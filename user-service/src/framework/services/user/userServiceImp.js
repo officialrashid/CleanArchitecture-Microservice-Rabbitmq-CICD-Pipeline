@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs'
-
+import config from '../../../config/config.js';
+import jwt from 'jsonwebtoken';
 const userServiceImp = () => {
     
     const bycriptPassword = async (password) => {  //passwod bcrypt function
@@ -9,8 +10,16 @@ const userServiceImp = () => {
        console.log(hashPassword, "hashpassword is coming");
        return hashPassword;
     };
+   const createAccessToken = async (registerdUser)=>{
+      const accessToken = jwt.sign(registerdUser, config.jwtAccessSecretKey, { expiresIn: '1d' })
+      console.log(accessToken,"access token vanuu makkele");
+      return accessToken
+   } 
+   const ComparePassword = async (password,userPassword) => bcrypt.compare(password,userPassword)
     return {
        bycriptPassword,
+       createAccessToken,
+       ComparePassword
        
     };
  };

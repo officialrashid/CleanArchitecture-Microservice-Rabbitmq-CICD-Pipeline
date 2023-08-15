@@ -12,6 +12,7 @@ const authRouter=(express)=>{
     const controller = userController(userRepositoryInt,userRepositoryImp,userSeriviceInt,userServiceImp)
      //call the register api
     router.route('/register').post(controller.createUser)
+    router.route('/login').post(controller.login)
 
     return router
 }

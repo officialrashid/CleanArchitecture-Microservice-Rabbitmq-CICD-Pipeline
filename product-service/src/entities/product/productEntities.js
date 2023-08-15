@@ -1,11 +1,12 @@
-const productdata=(productName,category,price,discription) =>{
+const productdata=(productName,category,price,description,image) =>{
     //set the userDetail entities //
         return {
     
             getProductName:() =>productName,
             getCategory:()=>category,
             getPrice:()=>price,
-            getDiscription:()=>discription
+            getDescription:()=>description,
+            getImage:()=>image
           
         }
     }

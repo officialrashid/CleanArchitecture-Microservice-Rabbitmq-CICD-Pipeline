@@ -13,9 +13,13 @@ const productSchema = new mongoose.Schema({
   price: {
     type: Number,
   },
-  discription: {
+  description: {
+    type: String
+  },
+  image:{
     type: String
   }
+
 });
 
 const productData = mongoose.model("product", productSchema); // Set the collection name to "user"

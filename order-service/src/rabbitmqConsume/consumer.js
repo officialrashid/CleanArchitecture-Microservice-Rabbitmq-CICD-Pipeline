@@ -25,14 +25,14 @@ const consumeOrderQueue = async () => {
 
     channel.consume('ORDER', async (data) => {
       if (!data) return; // Handle the case where the message is empty or invalid
-      const { products, userId } = JSON.parse(data.content);
+      const { products, userId , address} = JSON.parse(data.content);
 
       console.log('Consuming order queue');
       console.log(products, 'Products received from queue');
       console.log(userId, 'User ID received from queue');
 
       try {
-        const newOrder = await createOrder(products, userId, orderDbRepository);
+        const newOrder = await createOrder(products, userId,address, orderDbRepository);
         console.log('Order created:', newOrder);
 
         channel.ack(data); // Acknowledge the message after successful processing

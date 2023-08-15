@@ -13,6 +13,9 @@ const productRouter=(express)=>{
      //call the register api
     router.route('/addProduct').post(productsController.addProduct)
     router.route('/buyProduct').post(productsController.buyProduct)
+    router.route('/getAllProduct').get(productsController.getAllProduct)
+    router.route('/getProductDetails/:id').get(productsController.getProductDetails);
+
     return router
 }
 

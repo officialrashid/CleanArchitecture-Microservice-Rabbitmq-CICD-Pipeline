@@ -6,10 +6,11 @@ import config from "./src/config/productServConfig.js";
 import expressConfig from "./src/framework/webServer/express.js";
 import routes from "./src/framework/webServer/routes/index.js";
 
+// Create an Express app instance
 const app = express();
+
+// Create an HTTP server instance using the Express app
 const server = http.createServer(app);
-
-
 
 // Connect to the database using the configuration from "config.js"
 getDb(config);
@@ -18,6 +19,9 @@ getDb(config);
 expressConfig(app);
 
 // Configure the server routes
+serverConfig(app);
+
+// Set up the routes for the app using the Express instance
 routes(app, express);
 
 // Start the server

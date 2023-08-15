@@ -1,7 +1,7 @@
 
 const orderRepositoriInf = (repository) =>{
 
-    const createOrder = (products,userId,total) => repository.createOrder(products,userId,total)
+    const createOrder = (products,userId,address,total) => repository.createOrder(products,userId,address,total)
    return{
     createOrder,
    }

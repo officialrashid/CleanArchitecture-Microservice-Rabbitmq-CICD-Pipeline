@@ -1,11 +1,11 @@
-const createOrder = async (products, userId, repositories) => {
+const createOrder = async (products, userId,address, repositories) => {
     let total = 0; // Initialize total to zero
   
     for (let i = 0; i < products.length; i++) {
       total += products[i].price;
     }
   
-    const orders = await repositories.createOrder(products, userId, total);
+    const orders = await repositories.createOrder(products, userId,address, total);
   
     if (orders) {
       console.log("Success: Order created successfully");
