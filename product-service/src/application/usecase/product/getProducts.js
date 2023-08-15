@@ -3,7 +3,7 @@ const getProducts = async (repositories, productService) => {
       const response = await repositories.getProducts();
       console.log(response, "Response from getProducts repositories");
   
-      return { status: false, products: response };
+      return { status: true, products: response };
     } catch (error) {
       console.error("Error in getProducts use case:", error);
       throw error;

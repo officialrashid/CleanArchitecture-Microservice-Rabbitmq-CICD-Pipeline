@@ -64,6 +64,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd ~/CleanArchitecture-Microservice-Rabbitmq-CICD-Pipeline
+            git rebase --abort
+            rm -fr ".git/rebase-merge"
             git pull origin main
             cd ./user-service
             pm2 restart all
