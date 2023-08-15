@@ -9,9 +9,9 @@ const expressConfig = (app) => {
   app.use(cors({
     origin: 'https://nextjs-project-22f17.web.app', // Update with your client's origin
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // Allow credentials (cookies, etc.)
-    // Add this line to allow the necessary headers from the Cloudinary API
-  }));
+    credentials: true // Allow credentials (cookies, etc.)
+}));
+
 };
 
 export default expressConfig;

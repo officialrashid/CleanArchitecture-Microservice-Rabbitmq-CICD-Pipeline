@@ -11,6 +11,7 @@ const expressConfig = (app) => {
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true // Allow credentials (cookies, etc.)
     }));
+    
 };
 
 export default expressConfig
