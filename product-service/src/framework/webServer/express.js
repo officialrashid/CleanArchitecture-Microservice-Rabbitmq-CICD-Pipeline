@@ -9,7 +9,7 @@ const expressConfig = (app) => {
   app.use(cors({
     origin: 'https://nextjs-project-81ff4.web.app', // Update with your client's origin
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: false // Allow credentials (cookies, etc.)
+    credentials: true // Allow credentials (cookies, etc.)
 }));
 
 };
