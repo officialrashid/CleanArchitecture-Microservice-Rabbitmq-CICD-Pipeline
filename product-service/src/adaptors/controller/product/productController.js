@@ -44,9 +44,9 @@ const getAllProduct = async (req,res) =>{
    console.log("get all product api success");
   try{
       
-   await getProducts(productDbRepository,productService).then((products)=>{
+   await getProducts(productDbRepository,productService).then(async(products)=>{
       console.log(products,"get all produdts in the controll");
-      res.setHeader('Content-Type', 'application/json');
+    
       res.status(200).json(products);
 
    })
