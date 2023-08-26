@@ -5,9 +5,9 @@ const loginUser = async (email,password,repositories,authService) =>{
         console.log(user,"oooooooooooooo9988998898989");
         if (user.email && user.password) {
           return authService.ComparePassword(password, user.password).then(async (isPassword) => {
-            console.log(isPassword,"::::::::::::::::::::::::");
+         
             if (isPassword) {
-  console.log("kjhjhhgg");
+
               const userdata ={
                   
                 _id : user._id,

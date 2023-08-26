@@ -4,7 +4,7 @@ const userRepositoryImp = () =>{
     const userExist = async(email) => await userData.findOne({email:email})//check the email exist in the database
     // add user detail in to the user database
     const createUser = async (user) =>{
-        console.log(user,"wwwwwwwwwwwwwwwwwwwwwwwwww");
+   
         const users =  await new userData({
             name: user?.getname(),
             email: user?.getemail(),

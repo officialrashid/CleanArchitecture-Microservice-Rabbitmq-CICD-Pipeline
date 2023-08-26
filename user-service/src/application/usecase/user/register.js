@@ -10,7 +10,7 @@ const registerUser = async (name,email,password,repository,authService) => {
             console.log("success oppppppp");
             const changePassword = await authService.bycriptPassword(password);//passwod bcrypt function
             const userDetails = userdata(name,email,changePassword); 
-            console.log(userDetails,";;;;;::::::");// Pass the hashed password instead of the original password.
+           // Pass the hashed password instead of the original password.
             const createUser = await repository.createUser(userDetails);//call the userRepositoryInf inside the createUser fuction.
             const registeredUser = {
 
